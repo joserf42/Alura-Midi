@@ -8,11 +8,11 @@
 
 body {
   align-items: center;
-  /*azul celeste */ 
-  background: #5a5bf3; 
-  background: -moz-linear-gradient(left, #5a5bf3 0%, #91e7d9 100%); 
-  background: -webkit-linear-gradient(left, #5a5bf3 0%,#91e7d9 100%); 
-  background: linear-gradient(to right, #5a5bf3 0%,#91e7d9 100%);
+  /*azul celeste */
+  background: #5a5bf3;
+  background: -moz-linear-gradient(left, #5a5bf3 0%, #91e7d9 100%);
+  background: -webkit-linear-gradient(left, #5a5bf3 0%, #91e7d9 100%);
+  background: linear-gradient(to right, #5a5bf3 0%, #91e7d9 100%);
 
   display: flex;
   justify-content: center;
@@ -21,16 +21,27 @@ body {
   min-height: 100vh;
 }
 
-h1 {
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_alura {
+  width: 45%;
+}
+
+h1,
+h2,
+p {
   color: var(--blanco);
   margin-bottom: 20px;
   font-size: 2rem;
   font-weight: 600;
-  
+
 }
 
 .teclado {
-  background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%);
+  background: linear-gradient(to bottom, #eeeeee 0%, #cccccc 100%);
   box-shadow: 6px 8px 0 6px #666, 10px 10px 10px #000;
   border-radius: 30px;
   display: grid;
@@ -56,7 +67,7 @@ h1 {
 .tecla.activa,
 .tecla:active {
   background-color: var(--rojo);
-  border: 4px solid  var(--rojo);
+  border: 4px solid var(--rojo);
   box-shadow: 3px 3px 0 var(--rojo-oscuro) inset;
   color: var(--blanco);
   outline: none;
@@ -71,4 +82,17 @@ h1 {
 .tecla.active:focus,
 .tecla:active:focus {
   box-shadow: 3px 3px 0 var(--rojo-oscuro) inset, 1px 1px 10px var(--luz);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+p {
+  font-size: 1.5rem;
+
 }
