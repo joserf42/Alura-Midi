@@ -4,8 +4,6 @@ function playSonido (idElemtoAudio) {
 // llama a la constante listaDeTeclas
 const listaDeTeclas = document.querySelectorAll('.tecla');
 
-let contador = 0
-
 for (let contador = 0; contador < listaDeTeclas.length; contador++) {
     // Creando constantes para los eventos de teclas
     const tecla = listaDeTeclas[contador];
@@ -18,21 +16,19 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
         playSonido(idAudio);
     };
     tecla.onkeydown = function (evento){
-        if (evento.code === 'Space'){
+        if (evento.code === 'Space' || evento.code === 'Enter'){
             tecla.classList.add('activa');
+            tecla.onclick = null; //Desactiva el evento de click
             
-        }
-        if (evento.code === 'Enter'){
-            tecla.classList.add('activa');
-                
-        }
+        }        
         
-    }
-    tecla.onkeyup = function (){
-        if (evento.code === 'Enter') {
+    };
+    tecla.onkeyup = function (evento){
+        if (evento.code === 'Space' || evento.code === 'Enter') {
             tecla.classList.remove('activa');
+            tecla.onclick = function () {
+                playSonido(idAudio);
+            };
         }
-        
-
-    }
+    };
 }
