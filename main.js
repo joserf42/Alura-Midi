@@ -17,5 +17,22 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
     tecla.onclick = function () {
         playSonido(idAudio);
     };
-    
+    tecla.onkeydown = function (evento){
+        if (evento.code === 'Space'){
+            tecla.classList.add('activa');
+            
+        }
+        if (evento.code === 'Enter'){
+            tecla.classList.add('activa');
+                
+        }
+        
+    }
+    tecla.onkeyup = function (){
+        if (evento.code === 'Enter') {
+            tecla.classList.remove('activa');
+        }
+        
+
+    }
 }
