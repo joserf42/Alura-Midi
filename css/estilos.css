@@ -4,10 +4,11 @@
   --rojo-oscuro: #af303f;
   --blanco: #fff;
   --luz: rgb(229, 255, 0);
+  --azul-oscuro: #0d053c;
 }
 
 body {
-  align-items: center;
+
   /*azul celeste */
   background: #5a5bf3;
   background: -moz-linear-gradient(left, #5a5bf3 0%, #91e7d9 100%);
@@ -23,23 +24,27 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin: 25px 0px;
+  margin: 25px 10px;
+}
+
+main {
+  align-items: center;
 }
 
 .icon_alura {
-  width: 45%;
+  width: 30%;
   border-radius: 50%;
 }
 
 h1,
 h2 {
-  color: var(--blanco);
+  color: var(--azul-oscuro);
   margin-bottom: 8px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  box-shadow: 2px 1px 10px #000;
+
 
 }
 
@@ -51,6 +56,8 @@ h2 {
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   padding: 10px;
+  margin: 0 10px;
+
 }
 
 .tecla {
@@ -64,7 +71,7 @@ h2 {
   font-weight: bold;
   line-height: 120px;
   text-align: center;
-  width: 120px;
+  width: 100%;
 }
 
 .tecla.activa,
@@ -96,7 +103,7 @@ h2 {
 }
 
 p {
-  color: var(--blanco);
+  color: var(--azul-oscuro);
   font-weight: 600;
   font-size: 1rem;
 }

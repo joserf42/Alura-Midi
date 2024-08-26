@@ -1,34 +1,33 @@
-function playSonido (idElemtoAudio) {
-    document.querySelector(idElemtoAudio).play();
-}
-// llama a la constante listaDeTeclas
+// Función para reproducir sonido
+const playSonido = (idElementoAudio) => {
+    const audioElement = document.querySelector(idElementoAudio);
+    if (audioElement) {
+        audioElement.play();
+    }
+};
+
+// Selección de teclas
 const listaDeTeclas = document.querySelectorAll('.tecla');
 
-for (let contador = 0; contador < listaDeTeclas.length; contador++) {
-    // Creando constantes para los eventos de teclas
-    const tecla = listaDeTeclas[contador];
+// Función para manejar eventos de teclado
+const manejarEventoTeclado = (evento, tecla, idAudio) => {
+    if (evento.code === 'Space' || evento.code === 'Enter') {
+        tecla.classList.toggle('activa', evento.type === 'keydown');
+        if (evento.type === 'keydown') {
+            playSonido(idAudio);
+        }
+    }
+};
+
+// Iteración sobre las teclas
+listaDeTeclas.forEach(tecla => {
     const instrumento = tecla.classList[1];
     const idAudio = `#sonido_${instrumento}`;
-    console.log(idAudio)
-    
-    // Creando evento de click para cada tecla
-    tecla.onclick = function () {
-        playSonido(idAudio);
-    };
-    tecla.onkeydown = function (evento){
-        if (evento.code === 'Space' || evento.code === 'Enter'){
-            tecla.classList.add('activa');
-            tecla.onclick = null; //Desactiva el evento de click
-            
-        }        
-        
-    };
-    tecla.onkeyup = function (evento){
-        if (evento.code === 'Space' || evento.code === 'Enter') {
-            tecla.classList.remove('activa');
-            tecla.onclick = function () {
-                playSonido(idAudio);
-            };
-        }
-    };
-}
+
+    // Evento de clic
+    tecla.onclick = () => playSonido(idAudio);
+
+    // Eventos de teclado
+    tecla.onkeydown = (evento) => manejarEventoTeclado(evento, tecla, idAudio);
+    tecla.onkeyup = (evento) => manejarEventoTeclado(evento, tecla, idAudio);
+});
